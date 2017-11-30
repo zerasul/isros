@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>isros-muleapp</artifactId>
 	<packaging>mule</packaging>
-	<name>Integración de Sistema Real Open Source</name>
+	<name>Integración de Sistema Real Open Source - Mule App</name>
 	<parent>
 		<groupId>es.ual.vsuarez.isros</groupId>
 		<artifactId>isros</artifactId>
@@ -149,6 +149,11 @@
 		<dependency>
 			<groupId>es.ual.vsuarez.isros</groupId>
 			<artifactId>isrosdolibar-connector</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>es.ual.vsuarez.isros</groupId>
+			<artifactId>isrosprestashop-connector</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
