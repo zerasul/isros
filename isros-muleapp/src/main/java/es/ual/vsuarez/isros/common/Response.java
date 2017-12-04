@@ -24,7 +24,11 @@ public class Response {
 	public void setResponse(String response) {
 		Response = response;
 	}
-	
+	@Override
+	public String toString() {
+		String str="[ Request: "+request.toString()+", result:"+result+", response: "+Response+"]";
+		return str;
+	}
 	
 
 }

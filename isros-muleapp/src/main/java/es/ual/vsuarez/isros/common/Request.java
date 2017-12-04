@@ -31,6 +31,15 @@ public class Request {
 		this.parameters = parameters;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String str;
+		str="[ backend: "+ getBackend()+", operation: "+getOperation()+", paramters: [";
+		for (String str2 : parameters.keySet()) {
+		  str+= str2+": "+parameters.get(str2).toString()+",";
+		}
+		str+="]]";
+		return str;
+	}
 
 }
