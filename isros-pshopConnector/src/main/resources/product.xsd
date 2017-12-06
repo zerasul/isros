@@ -1,0 +1,324 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="https://www.w3.org/1999/xlink.xsd"/>
+  <xs:element name="prestashop" type="prestashopType"/>
+  <xs:complexType name="id_manufacturerType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="id_supplierType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="id_category_defaultType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="id_default_imageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+        <xs:attribute type="xs:string" name="notFilterable"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="id_default_combinationType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+        <xs:attribute type="xs:string" name="notFilterable"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="id_tax_rules_groupType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="position_in_categoryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute type="xs:string" name="notFilterable"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="manufacturer_nameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="notFilterable"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="quantityType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute type="xs:string" name="notFilterable"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="typeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="notFilterable"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="languageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:byte" name="id" use="optional"/>
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="meta_descriptionType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="meta_keywordsType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="meta_titleType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="link_rewriteType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nameType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="descriptionType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="description_shortType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="available_nowType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="available_laterType">
+    <xs:sequence>
+      <xs:element type="languageType" name="language" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoryType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+    </xs:sequence>
+    <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+  </xs:complexType>
+  <xs:complexType name="categoriesType">
+    <xs:sequence>
+      <xs:element type="categoryType" name="category" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nodeType"/>
+    <xs:attribute type="xs:string" name="api"/>
+  </xs:complexType>
+  <xs:complexType name="imageType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+    </xs:sequence>
+    <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+  </xs:complexType>
+  <xs:complexType name="imagesType">
+    <xs:sequence>
+      <xs:element type="imageType" name="image" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nodeType"/>
+    <xs:attribute type="xs:string" name="api"/>
+  </xs:complexType>
+  <xs:complexType name="combinationType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+    </xs:sequence>
+    <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+  </xs:complexType>
+  <xs:complexType name="combinationsType">
+    <xs:sequence>
+      <xs:element type="combinationType" name="combination" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nodeType"/>
+    <xs:attribute type="xs:string" name="api"/>
+  </xs:complexType>
+  <xs:complexType name="product_option_valueType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+    </xs:sequence>
+    <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+  </xs:complexType>
+  <xs:complexType name="product_option_valuesType">
+    <xs:sequence>
+      <xs:element type="product_option_valueType" name="product_option_value" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nodeType"/>
+    <xs:attribute type="xs:string" name="api"/>
+  </xs:complexType>
+  <xs:complexType name="id_feature_valueType">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="product_featureType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+      <xs:element type="id_feature_valueType" name="id_feature_value"/>
+    </xs:sequence>
+    <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+  </xs:complexType>
+  <xs:complexType name="product_featuresType">
+    <xs:sequence>
+      <xs:element type="product_featureType" name="product_feature" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nodeType"/>
+    <xs:attribute type="xs:string" name="api"/>
+  </xs:complexType>
+  <xs:complexType name="tagsType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="nodeType"/>
+        <xs:attribute type="xs:string" name="api"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="stock_availableType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+      <xs:element type="xs:float" name="id_product_attribute"/>
+    </xs:sequence>
+    <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>
+  </xs:complexType>
+  <xs:complexType name="stock_availablesType">
+    <xs:sequence>
+      <xs:element type="stock_availableType" name="stock_available" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nodeType"/>
+    <xs:attribute type="xs:string" name="api"/>
+  </xs:complexType>
+  <xs:complexType name="accessoriesType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="nodeType"/>
+        <xs:attribute type="xs:string" name="api"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="product_bundleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="nodeType"/>
+        <xs:attribute type="xs:string" name="api"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="associationsType">
+    <xs:sequence>
+      <xs:element type="categoriesType" name="categories"/>
+      <xs:element type="imagesType" name="images"/>
+      <xs:element type="combinationsType" name="combinations"/>
+      <xs:element type="product_option_valuesType" name="product_option_values"/>
+      <xs:element type="product_featuresType" name="product_features"/>
+      <xs:element type="tagsType" name="tags"/>
+      <xs:element type="stock_availablesType" name="stock_availables"/>
+      <xs:element type="accessoriesType" name="accessories"/>
+      <xs:element type="product_bundleType" name="product_bundle"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="id"/>
+      <xs:element type="id_manufacturerType" name="id_manufacturer"/>
+      <xs:element type="id_supplierType" name="id_supplier"/>
+      <xs:element type="id_category_defaultType" name="id_category_default"/>
+      <xs:element type="xs:string" name="new"/>
+      <xs:element type="xs:float" name="cache_default_attribute"/>
+      <xs:element type="id_default_imageType" name="id_default_image"/>
+      <xs:element type="id_default_combinationType" name="id_default_combination"/>
+      <xs:element type="id_tax_rules_groupType" name="id_tax_rules_group"/>
+      <xs:element type="position_in_categoryType" name="position_in_category"/>
+      <xs:element type="manufacturer_nameType" name="manufacturer_name"/>
+      <xs:element type="quantityType" name="quantity"/>
+      <xs:element type="typeType" name="type"/>
+      <xs:element type="xs:float" name="id_shop_default"/>
+      <xs:element type="xs:string" name="reference"/>
+      <xs:element type="xs:string" name="supplier_reference"/>
+      <xs:element type="xs:string" name="location"/>
+      <xs:element type="xs:float" name="width"/>
+      <xs:element type="xs:float" name="height"/>
+      <xs:element type="xs:float" name="depth"/>
+      <xs:element type="xs:float" name="weight"/>
+      <xs:element type="xs:float" name="quantity_discount"/>
+      <xs:element type="xs:float" name="ean13"/>
+      <xs:element type="xs:string" name="upc"/>
+      <xs:element type="xs:float" name="cache_is_pack"/>
+      <xs:element type="xs:float" name="cache_has_attachments"/>
+      <xs:element type="xs:float" name="is_virtual"/>
+      <xs:element type="xs:float" name="on_sale"/>
+      <xs:element type="xs:float" name="online_only"/>
+      <xs:element type="xs:float" name="ecotax"/>
+      <xs:element type="xs:float" name="minimal_quantity"/>
+      <xs:element type="xs:float" name="price"/>
+      <xs:element type="xs:float" name="wholesale_price"/>
+      <xs:element type="xs:string" name="unity"/>
+      <xs:element type="xs:float" name="unit_price_ratio"/>
+      <xs:element type="xs:float" name="additional_shipping_cost"/>
+      <xs:element type="xs:float" name="customizable"/>
+      <xs:element type="xs:float" name="text_fields"/>
+      <xs:element type="xs:float" name="uploadable_files"/>
+      <xs:element type="xs:float" name="active"/>
+      <xs:element type="xs:float" name="redirect_type"/>
+      <xs:element type="xs:float" name="id_product_redirected"/>
+      <xs:element type="xs:float" name="available_for_order"/>
+      <xs:element type="xs:string" name="available_date"/>
+      <xs:element type="xs:string" name="condition"/>
+      <xs:element type="xs:float" name="show_price"/>
+      <xs:element type="xs:float" name="indexed"/>
+      <xs:element type="xs:string" name="visibility"/>
+      <xs:element type="xs:float" name="advanced_stock_management"/>
+      <xs:element type="xs:string" name="date_add"/>
+      <xs:element type="xs:string" name="date_upd"/>
+      <xs:element type="xs:float" name="pack_stock_type"/>
+      <xs:element type="meta_descriptionType" name="meta_description"/>
+      <xs:element type="meta_keywordsType" name="meta_keywords"/>
+      <xs:element type="meta_titleType" name="meta_title"/>
+      <xs:element type="link_rewriteType" name="link_rewrite"/>
+      <xs:element type="nameType" name="name"/>
+      <xs:element type="descriptionType" name="description"/>
+      <xs:element type="description_shortType" name="description_short"/>
+      <xs:element type="available_nowType" name="available_now"/>
+      <xs:element type="available_laterType" name="available_later"/>
+      <xs:element type="associationsType" name="associations"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="prestashopType">
+    <xs:sequence>
+      <xs:element type="productType" name="product"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

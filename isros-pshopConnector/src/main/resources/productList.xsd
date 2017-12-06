@@ -4,7 +4,7 @@
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute type="xs:byte" name="id" use="optional"/>
-        
+       <!--   <xs:attribute ref="xlin:href" xmlns:xlin="http://www.w3.org/1999/xlink"/>-->
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>

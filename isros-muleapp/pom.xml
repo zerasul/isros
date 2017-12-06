@@ -155,6 +155,11 @@
 			<artifactId>isrosprestashop-connector</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>es.ual.vsuarez.isros</groupId>
+			<artifactId>isros-sugarconnector</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	<dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-ws</artifactId>

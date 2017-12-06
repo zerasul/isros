@@ -1,5 +1,6 @@
 .metadata
 .mule
 **/target/
-**.classpath
+**/.classpath
 studio_id.xml
+**/.project

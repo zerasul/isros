@@ -13,7 +13,9 @@
 	<modules>
 		<module>isros-dolibarConector</module>
 		<module>isros-pshopConnector</module>
+		<module>isros-SugarConnector</module>
 		<module>isros-muleapp</module>
+		
 		
 	</modules>
 </project>
