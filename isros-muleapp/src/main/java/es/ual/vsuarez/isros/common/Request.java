@@ -5,17 +5,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Request {
-	private Integer backend;
+	private String backend;
 	private Integer Operation;
 	private Map<String, Serializable> parameters;
 	
 	public Request() {
 		parameters = new HashMap<String, Serializable>();
 	}
-	public Integer getBackend() {
+	public String getBackend() {
 		return backend;
 	}
-	public void setBackend(Integer backend) {
+	public void setBackend(String backend) {
 		this.backend = backend;
 	}
 	public Integer getOperation() {

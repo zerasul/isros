@@ -6,19 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
-    <flow name="clientsFlow">
-        <vm:inbound-endpoint exchange-pattern="request-response" address="vm://clients" doc:name="VM"/>
-        <choice doc:name="Choice">
-            <when expression="#[payload.request.operation == 1]">
-                <component doc:name="Java"/>
-            </when>
-            <when expression="">
-                <component doc:name="Java"/>
-            </when>
-            <when expression="">
-                <component doc:name="Java"/>
-            </when>
-        </choice>
-        <echo-component doc:name="Echo"/>
+    <flow name="salesFlow">
+        <vm:inbound-endpoint exchange-pattern="request-response" address="vm://sales" doc:name="VM"/>
     </flow>
 </mule>

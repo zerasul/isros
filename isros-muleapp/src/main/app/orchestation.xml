@@ -9,9 +9,18 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <flow name="orchestationFlow">
         <vm:inbound-endpoint exchange-pattern="request-response" address="vm://orchestation" doc:name="VM"/>
+        <set-variable variableName="backend" value="#[payload.request.backend]" doc:name="Variable"/>
+        <echo-component doc:name="Echo"/>
         <choice doc:name="Choice">
-            <when expression="#[payload.request.backend]">
+        
+            <when expression="#[flowVars.backend == '1']">
                 <vm:outbound-endpoint exchange-pattern="request-response" address="vm://clients" doc:name="VM"/>
+            </when>
+            <when expression="#[flowVars.backend == '2']">
+            	<vm:outbound-endpoint exchange-pattern="request-response" address="vm://products" doc:name="VM"/>
+            </when>
+            <when expression="">
+                <vm:outbound-endpoint exchange-pattern="request-response" address="vm://sales" doc:name="VM"/>
             </when>
         </choice>
     </flow>
