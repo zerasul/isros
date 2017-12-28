@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Request {
 	private String backend;
-	private Integer Operation;
+	private String Operation;
 	private Map<String, Serializable> parameters;
 	
 	public Request() {
@@ -18,10 +18,10 @@ public class Request {
 	public void setBackend(String backend) {
 		this.backend = backend;
 	}
-	public Integer getOperation() {
+	public String getOperation() {
 		return Operation;
 	}
-	public void setOperation(Integer operation) {
+	public void setOperation(String operation) {
 		Operation = operation;
 	}
 	public Map<String, Serializable> getParameters() {

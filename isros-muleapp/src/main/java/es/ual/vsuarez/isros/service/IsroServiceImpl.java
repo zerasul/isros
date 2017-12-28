@@ -10,7 +10,7 @@ public class IsroServiceImpl implements IsroService {
 	public Response listClients() {
 		Request request = new Request();
 		request.setBackend("1");
-		request.setOperation(1);
+		request.setOperation("1");
 		Response resp = new Response();
 		resp.setRequest(request);
 		return resp;
