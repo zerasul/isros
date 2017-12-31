@@ -132,12 +132,12 @@
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!--  <dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-module-cxf</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-module-http</artifactId>
@@ -145,9 +145,9 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- Dependencias del proyecto -->
-		<dependency>
+		  <dependency>
 			<groupId>es.ual.vsuarez.isros</groupId>
-			<artifactId>isrosdolibar-connector</artifactId>
+			<artifactId>isrosdolibar-connector-cxf</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

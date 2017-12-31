@@ -9,9 +9,13 @@
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="con" path="MULE_RUNTIME"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/axis/axis/1.4/axis-1.4.jar" sourcepath="M2_REPO/org/apache/axis/axis/1.4/axis-1.4-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/es/ual/vsuarez/isros/isros-sugarconnector/1.0.0-SNAPSHOT/isros-sugarconnector-1.0.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/es/ual/vsuarez/isros/isrosdolibar-connector/1.0.0-SNAPSHOT/isrosdolibar-connector-1.0.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/es/ual/vsuarez/isros/isrosdolibar-connector-cxf/1.0.0-SNAPSHOT/isrosdolibar-connector-cxf-1.0.0-SNAPSHOT.jar"/>
   <classpathentry kind="var" path="M2_REPO/es/ual/vsuarez/isros/isrosprestashop-connector/1.0.0-SNAPSHOT/isrosprestashop-connector-1.0.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/xml/jaxrpc-api/1.1/jaxrpc-api-1.1.jar"/>
 </classpath>

@@ -3,7 +3,7 @@
 <types>
 <xsd:schema targetNamespace="http://www.dolibarr.org/ns/"
 >
- <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="isros-dolibarcxf/src/main/resources/encoding.xml" />
  <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
  <xsd:complexType name="authentication">
   <xsd:all>
@@ -78,35 +78,83 @@
    <xsd:element name="thirdparty" type="tns:thirdparty" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
  </xsd:complexType>
+ <xsd:complexType name="getThirdPartyRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+   <xsd:element name="ref" type="xsd:string" form="unqualified"/>
+   <xsd:element name="ref_ext" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getThirdPartyResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="thirdparty" type="tns:thirdparty" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createThirdPartyRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="thirdparty" type="tns:thirdparty" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createThirdPartyResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+   <xsd:element name="ref" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="updateThirdPartyRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="thirdparty" type="tns:thirdparty" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="updateThirdPartyResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getListOfThirdPartiesRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="filterthirdparty" type="tns:filterthirdparty" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getListOfThirdPartiesResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="thirdparties" type="tns:ThirdPartiesArray2" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="getThirdParty" type="tns:getThirdPartyRequestType"/>
+ <xsd:element name="getThirdPartyResponse" type="tns:getThirdPartyResponseType"/>
+ <xsd:element name="createThirdParty" type="tns:createThirdPartyRequestType"/>
+ <xsd:element name="createThirdPartyResponse" type="tns:createThirdPartyResponseType"/>
+ <xsd:element name="updateThirdParty" type="tns:updateThirdPartyRequestType"/>
+ <xsd:element name="updateThirdPartyResponse" type="tns:updateThirdPartyResponseType"/>
+ <xsd:element name="getListOfThirdParties" type="tns:getListOfThirdPartiesRequestType"/>
+ <xsd:element name="getListOfThirdPartiesResponse" type="tns:getListOfThirdPartiesResponseType"/>
 </xsd:schema>
 </types>
 <message name="getThirdPartyRequest">
-  <part name="authentication" type="tns:authentication" />
-  <part name="id" type="xsd:string" />
-  <part name="ref" type="xsd:string" />
-  <part name="ref_ext" type="xsd:string" /></message>
+  <part name="parameters" element="tns:getThirdParty" /></message>
 <message name="getThirdPartyResponse">
-  <part name="result" type="tns:result" />
-  <part name="thirdparty" type="tns:thirdparty" /></message>
+  <part name="parameters" element="tns:getThirdPartyResponse" /></message>
 <message name="createThirdPartyRequest">
-  <part name="authentication" type="tns:authentication" />
-  <part name="thirdparty" type="tns:thirdparty" /></message>
+  <part name="parameters" element="tns:createThirdParty" /></message>
 <message name="createThirdPartyResponse">
-  <part name="result" type="tns:result" />
-  <part name="id" type="xsd:string" />
-  <part name="ref" type="xsd:string" /></message>
+  <part name="parameters" element="tns:createThirdPartyResponse" /></message>
 <message name="updateThirdPartyRequest">
-  <part name="authentication" type="tns:authentication" />
-  <part name="thirdparty" type="tns:thirdparty" /></message>
+  <part name="parameters" element="tns:updateThirdParty" /></message>
 <message name="updateThirdPartyResponse">
-  <part name="result" type="tns:result" />
-  <part name="id" type="xsd:string" /></message>
+  <part name="parameters" element="tns:updateThirdPartyResponse" /></message>
 <message name="getListOfThirdPartiesRequest">
-  <part name="authentication" type="tns:authentication" />
-  <part name="filterthirdparty" type="tns:filterthirdparty" /></message>
+  <part name="parameters" element="tns:getListOfThirdParties" /></message>
 <message name="getListOfThirdPartiesResponse">
-  <part name="result" type="tns:result" />
-  <part name="thirdparties" type="tns:ThirdPartiesArray2" /></message>
+  <part name="parameters" element="tns:getListOfThirdPartiesResponse" /></message>
 <portType name="WebServicesDolibarrThirdPartyPortType">
   <operation name="getThirdParty">
     <documentation>WS to get a thirdparty from its id, ref or ref_ext</documentation>
@@ -130,24 +178,24 @@
   </operation>
 </portType>
 <binding name="WebServicesDolibarrThirdPartyBinding" type="tns:WebServicesDolibarrThirdPartyPortType">
-  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   <operation name="getThirdParty">
-    <soap:operation soapAction="http://www.dolibarr.org/ns/#getThirdParty" style="rpc"/>
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#getThirdParty" style="document"/>
     <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
     <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
   </operation>
   <operation name="createThirdParty">
-    <soap:operation soapAction="http://www.dolibarr.org/ns/#createThirdParty" style="rpc"/>
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#createThirdParty" style="document"/>
     <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
     <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
   </operation>
   <operation name="updateThirdParty">
-    <soap:operation soapAction="http://www.dolibarr.org/ns/#updateThirdParty" style="rpc"/>
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#updateThirdParty" style="document"/>
     <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
     <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
   </operation>
   <operation name="getListOfThirdParties">
-    <soap:operation soapAction="http://www.dolibarr.org/ns/#getListOfThirdParties" style="rpc"/>
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#getListOfThirdParties" style="document"/>
     <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
     <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
   </operation>

@@ -1,14 +1,15 @@
 package es.ual.vsuarez.isros.clients;
 
-import java.rmi.RemoteException;
+import java.util.List;
 
-import org.dolibarr.www.ns.Thirdparty;
+import org.dolibarr.ns.Thirdparty;
 
 import com.google.gson.Gson;
 
+import es.ual.vsuarez.dolibar.DolibarConnector;
 import es.ual.vsuarez.isros.common.IsrosTask;
 import es.ual.vsuarez.isros.common.Response;
-import es.ual.vsuarez.isros.dolibar.DolibarConnector;
+
 
 public class ListClients implements IsrosTask {
 
@@ -18,15 +19,12 @@ public class ListClients implements IsrosTask {
 	}
 	@Override
 	public Response doTask(Response response) {
-		try {
+			
 			Gson gson = new Gson();
-			Thirdparty[] th=conector.listClients();
+			List<Thirdparty> th=conector.getListThirdParty();
 			response.setResult("OK");
 			response.setResponse(gson.toJson(th));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 		return response;
 	}
