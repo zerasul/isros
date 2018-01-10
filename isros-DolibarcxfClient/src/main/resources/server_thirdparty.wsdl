@@ -3,7 +3,7 @@
 <types>
 <xsd:schema targetNamespace="http://www.dolibarr.org/ns/"
 >
- <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="isros-dolibarcxf/src/main/resources/encoding.xml" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="isros-DolibarcxfClient/src/main/resources/encoding.xml" />
  <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
  <xsd:complexType name="authentication">
   <xsd:all>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://www.dolibarr.org/ns/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.dolibarr.org/ns/">
+<types>
+<xsd:schema targetNamespace="http://www.dolibarr.org/ns/"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="isros-DolibarcxfProducts/src/main/resources/encoding.xml" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="authentication">
+  <xsd:all>
+   <xsd:element name="dolibarrkey" type="xsd:string"/>
+   <xsd:element name="sourceapplication" type="xsd:string"/>
+   <xsd:element name="login" type="xsd:string"/>
+   <xsd:element name="password" type="xsd:string"/>
+   <xsd:element name="entity" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="result">
+  <xsd:all>
+   <xsd:element name="result_code" type="xsd:string"/>
+   <xsd:element name="result_label" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="product">
+  <xsd:all>
+   <xsd:element name="id" type="xsd:string"/>
+   <xsd:element name="ref" type="xsd:string"/>
+   <xsd:element name="ref_ext" type="xsd:string"/>
+   <xsd:element name="type" type="xsd:string"/>
+   <xsd:element name="label" type="xsd:string"/>
+   <xsd:element name="description" type="xsd:string"/>
+   <xsd:element name="date_creation" type="xsd:dateTime"/>
+   <xsd:element name="date_modification" type="xsd:dateTime"/>
+   <xsd:element name="note" type="xsd:string"/>
+   <xsd:element name="status_tobuy" type="xsd:string"/>
+   <xsd:element name="status_tosell" type="xsd:string"/>
+   <xsd:element name="barcode" type="xsd:string"/>
+   <xsd:element name="barcode_type" type="xsd:string"/>
+   <xsd:element name="country_id" type="xsd:string"/>
+   <xsd:element name="country_code" type="xsd:string"/>
+   <xsd:element name="customcode" type="xsd:string"/>
+   <xsd:element name="price_net" type="xsd:string"/>
+   <xsd:element name="price" type="xsd:string"/>
+   <xsd:element name="price_min_net" type="xsd:string"/>
+   <xsd:element name="price_min" type="xsd:string"/>
+   <xsd:element name="price_base_type" type="xsd:string"/>
+   <xsd:element name="vat_rate" type="xsd:string"/>
+   <xsd:element name="vat_npr" type="xsd:string"/>
+   <xsd:element name="localtax1_tx" type="xsd:string"/>
+   <xsd:element name="localtax2_tx" type="xsd:string"/>
+   <xsd:element name="stock_alert" type="xsd:string"/>
+   <xsd:element name="stock_real" type="xsd:string"/>
+   <xsd:element name="stock_pmp" type="xsd:string"/>
+   <xsd:element name="canvas" type="xsd:string"/>
+   <xsd:element name="import_key" type="xsd:string"/>
+   <xsd:element name="dir" type="xsd:string"/>
+   <xsd:element name="images" type="tns:ImagesArray"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ImagesArray">
+  <xsd:sequence>
+   <xsd:element name="image" type="tns:image" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="image">
+  <xsd:all>
+   <xsd:element name="photo" type="xsd:string"/>
+   <xsd:element name="photo_vignette" type="xsd:string"/>
+   <xsd:element name="imgWidth" type="xsd:string"/>
+   <xsd:element name="imgHeight" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="filterproduct">
+  <xsd:all>
+   <xsd:element name="type" type="xsd:string"/>
+   <xsd:element name="status_tobuy" type="xsd:string"/>
+   <xsd:element name="status_tosell" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ProductsArray2">
+  <xsd:sequence>
+   <xsd:element name="product" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="getProductOrServiceRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+   <xsd:element name="ref" type="xsd:string" form="unqualified"/>
+   <xsd:element name="ref_ext" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getProductOrServiceResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="product" type="tns:product" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createProductOrServiceRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="product" type="tns:product" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="createProductOrServiceResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="updateProductOrServiceRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="product" type="tns:product" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="updateProductOrServiceResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getListOfProductsOrServicesRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="filterproduct" type="tns:filterproduct" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getListOfProductsOrServicesResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="products" type="tns:ProductsArray2" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getProductsForCategoryRequestType">
+  <xsd:all>
+   <xsd:element name="authentication" type="tns:authentication" form="unqualified"/>
+   <xsd:element name="id" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getProductsForCategoryResponseType">
+  <xsd:all>
+   <xsd:element name="result" type="tns:result" form="unqualified"/>
+   <xsd:element name="products" type="tns:ProductsArray2" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="getProductOrService" type="tns:getProductOrServiceRequestType"/>
+ <xsd:element name="getProductOrServiceResponse" type="tns:getProductOrServiceResponseType"/>
+ <xsd:element name="createProductOrService" type="tns:createProductOrServiceRequestType"/>
+ <xsd:element name="createProductOrServiceResponse" type="tns:createProductOrServiceResponseType"/>
+ <xsd:element name="updateProductOrService" type="tns:updateProductOrServiceRequestType"/>
+ <xsd:element name="updateProductOrServiceResponse" type="tns:updateProductOrServiceResponseType"/>
+ <xsd:element name="getListOfProductsOrServices" type="tns:getListOfProductsOrServicesRequestType"/>
+ <xsd:element name="getListOfProductsOrServicesResponse" type="tns:getListOfProductsOrServicesResponseType"/>
+ <xsd:element name="getProductsForCategory" type="tns:getProductsForCategoryRequestType"/>
+ <xsd:element name="getProductsForCategoryResponse" type="tns:getProductsForCategoryResponseType"/>
+</xsd:schema>
+</types>
+<message name="getProductOrServiceRequest">
+  <part name="parameters" element="tns:getProductOrService" /></message>
+<message name="getProductOrServiceResponse">
+  <part name="parameters" element="tns:getProductOrServiceResponse" /></message>
+<message name="createProductOrServiceRequest">
+  <part name="parameters" element="tns:createProductOrService" /></message>
+<message name="createProductOrServiceResponse">
+  <part name="parameters" element="tns:createProductOrServiceResponse" /></message>
+<message name="updateProductOrServiceRequest">
+  <part name="parameters" element="tns:updateProductOrService" /></message>
+<message name="updateProductOrServiceResponse">
+  <part name="parameters" element="tns:updateProductOrServiceResponse" /></message>
+<message name="getListOfProductsOrServicesRequest">
+  <part name="parameters" element="tns:getListOfProductsOrServices" /></message>
+<message name="getListOfProductsOrServicesResponse">
+  <part name="parameters" element="tns:getListOfProductsOrServicesResponse" /></message>
+<message name="getProductsForCategoryRequest">
+  <part name="parameters" element="tns:getProductsForCategory" /></message>
+<message name="getProductsForCategoryResponse">
+  <part name="parameters" element="tns:getProductsForCategoryResponse" /></message>
+<portType name="WebServicesDolibarrProductOrServicePortType">
+  <operation name="getProductOrService">
+    <documentation>WS to get product or service</documentation>
+    <input message="tns:getProductOrServiceRequest"/>
+    <output message="tns:getProductOrServiceResponse"/>
+  </operation>
+  <operation name="createProductOrService">
+    <documentation>WS to create a product or service</documentation>
+    <input message="tns:createProductOrServiceRequest"/>
+    <output message="tns:createProductOrServiceResponse"/>
+  </operation>
+  <operation name="updateProductOrService">
+    <documentation>WS to update a product or service</documentation>
+    <input message="tns:updateProductOrServiceRequest"/>
+    <output message="tns:updateProductOrServiceResponse"/>
+  </operation>
+  <operation name="getListOfProductsOrServices">
+    <documentation>WS to get list of all products or services id and ref</documentation>
+    <input message="tns:getListOfProductsOrServicesRequest"/>
+    <output message="tns:getListOfProductsOrServicesResponse"/>
+  </operation>
+  <operation name="getProductsForCategory">
+    <documentation>WS to get list of all products or services for a category</documentation>
+    <input message="tns:getProductsForCategoryRequest"/>
+    <output message="tns:getProductsForCategoryResponse"/>
+  </operation>
+</portType>
+<binding name="WebServicesDolibarrProductOrServiceBinding" type="tns:WebServicesDolibarrProductOrServicePortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="getProductOrService">
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#getProductOrService" style="document"/>
+    <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="createProductOrService">
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#createProductOrService" style="document"/>
+    <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="updateProductOrService">
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#updateProductOrService" style="document"/>
+    <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="getListOfProductsOrServices">
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#getListOfProductsOrServices" style="document"/>
+    <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="getProductsForCategory">
+    <soap:operation soapAction="http://www.dolibarr.org/ns/#getProductsForCategory" style="document"/>
+    <input><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://www.dolibarr.org/ns/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="WebServicesDolibarrProductOrService">
+  <port name="WebServicesDolibarrProductOrServicePort" binding="tns:WebServicesDolibarrProductOrServiceBinding">
+    <soap:address location="http://localhost:8888/dolibarr/htdocs/webservices/server_productorservice.php"/>
+  </port>
+</service>
+</definitions>

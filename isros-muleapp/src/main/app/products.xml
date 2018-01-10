@@ -9,14 +9,15 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <flow name="productsFlow">
         <vm:inbound-endpoint exchange-pattern="request-response" address="vm://products" doc:name="VM"/>
+        <set-variable variableName="operation" value="#[payload.request.operation]" doc:name="Variable"/>
         <choice doc:name="Choice">
-            <when expression="">
+            <when expression="#[flowVars.operation == '1']">
                 <component doc:name="Java"/>
             </when>
-            <when expression="">
+            <when expression="#[flowVars.operation == '2']">
                 <component doc:name="Java"/>
             </when>
-            <when expression="">
+            <when expression="#[flowVars.operation == '3']">
                 <component doc:name="Java"/>
             </when>
         </choice>
