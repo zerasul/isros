@@ -13,6 +13,10 @@ import org.dolibarr.ns.GetListOfThirdPartiesRequestType;
 import org.dolibarr.ns.GetListOfThirdPartiesResponseType;
 import org.dolibarr.ns.ThirdPartiesArray;
 import org.dolibarr.ns.Thirdparty;
+import org.dolibarr.ns.Product;
+import org.dolibarr.ns.Filterproduct;
+import org.dolibarr.ns.WebServicesDolibarrProductOrService;
+import org.dolibarr.ns.WebServicesDolibarrProductOrServicePortType;
 import org.dolibarr.ns.WebServicesDolibarrThirdParty;
 import org.dolibarr.ns.WebServicesDolibarrThirdPartyPortType;
 
@@ -69,4 +73,29 @@ public class DolibarConnector {
 		GetListOfThirdPartiesResponseType reponse=porttype.getListOfThirdParties(requesttype);
 		return reponse.getThirdparties().getThirdparty();
 	}
+	
+	public List<Product> getListProduct(){
+		URL url=null;
+		try {
+			url = new URL("http://localhost:8888/dolibarr/htdocs/webservices/server_thirdparty.php?wsdl");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebServicesDolibarrProductOrService service = new WebServicesDolibarrProductOrService(url);
+		WebServicesDolibarrProductOrServicePortType porttype = service.getWebServicesDolibarrProductOrServicePort();
+		Filterproduct fp = new Filterproduct();
+		fp.setType("");
+		fp.setStatusTobuy("");
+		fp.setStatusTosell("");
+		List<Product> result = null;
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return result;
+	}
+	
+	
 }

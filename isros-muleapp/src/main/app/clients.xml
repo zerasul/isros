@@ -15,11 +15,11 @@ http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/
             <when expression="#[flowVars.operation == '1']">
                 <component doc:name="Java" class="es.ual.vsuarez.isros.clients.ListClients"/>
             </when>
-            <when expression="">
-                <component doc:name="Java"/>
+            <when expression="#[flowVars.operation == '2']">
+                <component doc:name="Java" class="es.ual.vsuarez.isros.clients.CreateClient"/>
             </when>
-            <when expression="">
-                <component doc:name="Java"/>
+            <when expression="#[flowVars.operation == '3']">
+                <component doc:name="Java" class="es.ual.vsuarez.isros.clients.DeleteClient"/>
             </when>
         </choice>
         <echo-component doc:name="Echo"/>
