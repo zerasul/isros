@@ -19,6 +19,8 @@ import org.dolibarr.ns.WebServicesDolibarrProductOrService;
 import org.dolibarr.ns.WebServicesDolibarrProductOrServicePortType;
 import org.dolibarr.ns.WebServicesDolibarrThirdParty;
 import org.dolibarr.ns.WebServicesDolibarrThirdPartyPortType;
+import org.dolibarr.ns.CreateProductOrServiceRequestType;
+import org.dolibarr.ns.CreateProductOrServiceResponseType;
 
 
 
@@ -95,6 +97,29 @@ public class DolibarConnector {
 			// TODO: handle exception
 		}
 		return result;
+	}
+	
+	public Product createProduct(String ref, String name, Float price, String description){
+		URL url=null;
+		try {
+			url = new URL("http://localhost:8888/dolibarr/htdocs/webservices/server_thirdparty.php?wsdl");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Product p = new Product();
+		p.setRef(ref);
+		p.setPrice(price.toString());
+		p.setLabel(name);
+		p.setDescription(description);
+		WebServicesDolibarrProductOrService service = new WebServicesDolibarrProductOrService(url);
+		WebServicesDolibarrProductOrServicePortType porttype = service.getWebServicesDolibarrProductOrServicePort();
+		
+		CreateProductOrServiceRequestType ctype= new CreateProductOrServiceRequestType();
+		ctype.setAuthentication(autentication);
+		ctype.setProduct(p);
+		CreateProductOrServiceResponseType resp=porttype.createProductOrService(ctype);
+		return p;
 	}
 	
 	

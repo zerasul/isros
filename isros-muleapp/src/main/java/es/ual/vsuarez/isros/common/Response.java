@@ -1,5 +1,9 @@
 package es.ual.vsuarez.isros.common;
-
+/**
+ * Clase Response: Almacena la informacion de una respuesta del ESB.
+ * @author victor suarez
+ * @version 1.0.0
+ */
 public class Response {
 	
 	private Request request;

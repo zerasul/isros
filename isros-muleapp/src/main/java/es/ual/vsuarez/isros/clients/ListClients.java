@@ -10,7 +10,11 @@ import es.ual.vsuarez.dolibar.DolibarConnector;
 import es.ual.vsuarez.isros.common.IsrosTask;
 import es.ual.vsuarez.isros.common.Response;
 
-
+/**
+ * Tarea asociada a listar los clientes.
+ * @author victor suarez
+ * @version 1.0.0
+ */
 public class ListClients implements IsrosTask {
 
 	DolibarConnector conector;

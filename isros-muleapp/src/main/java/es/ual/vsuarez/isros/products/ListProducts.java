@@ -1,10 +1,20 @@
 package es.ual.vsuarez.isros.products;
 
+import java.util.List;
+
+import com.google.gson.Gson;
+
+import es.ual.isros.pshop.PrestashopConnector;
+import es.ual.isros.pshop.Product;
 import es.ual.vsuarez.dolibar.DolibarConnector;
 import es.ual.vsuarez.isros.common.IsrosTask;
-import es.ual.isros.pshop.PrestashopConnector;
 import es.ual.vsuarez.isros.common.Response;
 
+/**
+ * Tarea asociada a listarProductos
+ * @author victor suarez
+ * @version 1.0.0
+ */
 public class ListProducts implements IsrosTask {
 
 	DolibarConnector dolibarConnector;
@@ -12,7 +22,11 @@ public class ListProducts implements IsrosTask {
 	@Override
 	public Response doTask(Response response) {
 		// TODO Auto-generated method stub
-		return null;
+		Gson gson = new Gson();
+		List<Product> products=pshopconnector.listProducts();
+		response.setResult("OK");
+		response.setResponse(gson.toJson(products));
+		return response;
 	}
 
 }

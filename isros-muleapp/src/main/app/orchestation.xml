@@ -19,7 +19,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <when expression="#[flowVars.backend == '2']">
             	<vm:outbound-endpoint exchange-pattern="request-response" address="vm://products" doc:name="VM"/>
             </when>
-            <when expression="">
+            <when expression="#[flowVars.backend == '3']">
                 <vm:outbound-endpoint exchange-pattern="request-response" address="vm://sales" doc:name="VM"/>
             </when>
         </choice>

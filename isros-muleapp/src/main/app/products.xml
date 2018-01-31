@@ -12,10 +12,10 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         <set-variable variableName="operation" value="#[payload.request.operation]" doc:name="Variable"/>
         <choice doc:name="Choice">
             <when expression="#[flowVars.operation == '1']">
-                <component doc:name="Java"/>
+                <component doc:name="Java" class="es.ual.vsuarez.isros.products.ListProducts"/>
             </when>
             <when expression="#[flowVars.operation == '2']">
-                <component doc:name="Java"/>
+                <component doc:name="Java" class="es.ual.vsuarez.isros.products.CreateProduct"/>
             </when>
             <when expression="#[flowVars.operation == '3']">
                 <component doc:name="Java"/>
