@@ -1,0 +1,14 @@
+/*
+Theme Name: Isros Theme Wordpress
+Author: Victor Suarez
+Description: Tema para compras para uso con ESB
+Version: 0.0.1
+Tags: bootstrap, soap, isros
+*/
+body{
+    padding: 1em;
+}
+
+.product{
+    margin-right: 1em;
+}
