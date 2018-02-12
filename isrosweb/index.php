@@ -1,7 +1,21 @@
 <?php get_header(); ?>
     <div class="row justify-content-end">
         <div class="col-2">
-            <a href="carrito/" class="btn btn-primary">Finalizar</a>
+		<div class="dropdown show">
+  				<a class="btn btn-secondary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				Carrito
+  				</a>
+
+  			<div class="dropdown-menu"  >
+				<form action="carrito/" method="POST" >
+				<span id="carro">
+					
+				</span>
+				<input type=submit value="Finalizar" class="dropdown-item" />
+				</form>
+   				
+  			</div>
+</div>
         </div>
     </div>
     <hr/>
@@ -18,7 +32,7 @@
 					<p class="card-text">
 						<?php echo $prod->description; ?>
 					</p>
-					<a href="#" class="btn btn-primary">Comprar</a>
+					<a href="#" class="btn btn-primary" onclick="addItem('<?echo $prod->ref?>','<?echo $prod->name;?>',1)">comprar</a>
 				</div>
 			</div>
 			<?php }?>
