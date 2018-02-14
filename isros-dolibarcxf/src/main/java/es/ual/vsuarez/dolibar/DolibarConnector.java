@@ -119,6 +119,7 @@ public class DolibarConnector {
 		ctype.setAuthentication(autentication);
 		ctype.setProduct(p);
 		CreateProductOrServiceResponseType resp=porttype.createProductOrService(ctype);
+		
 		return p;
 	}
 	

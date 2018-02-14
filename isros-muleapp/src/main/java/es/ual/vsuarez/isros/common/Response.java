@@ -5,9 +5,17 @@ package es.ual.vsuarez.isros.common;
  * @version 1.0.0
  */
 public class Response {
-	
+	/**
+	 * Peticion asociada a la respuesta
+	 */
 	private Request request;
+	/**
+	 * Resultado de la operacion OK o KO
+	 */
 	private String result;
+	/**
+	 * Resultado en JSon.
+	 */
 	private String Response;
 	
 	public Request getRequest() {

@@ -34,4 +34,9 @@ public class PrestashopConnector{
 		Product p = new Product();
 		return p;
 	}
+	
+	public List<Sale> listSales(){
+		List<Sale> sale= new ArrayList<Sale>();
+		return sale;
+	}
 }
